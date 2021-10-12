@@ -6,9 +6,7 @@
 # include <list>
 # include <map>
 # include <deque>
-# include <list>
 # include <set>
-# include <stack>
 # include <queue>
 # include <algorithm>
 
