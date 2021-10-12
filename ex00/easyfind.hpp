@@ -10,6 +10,8 @@
 # include <queue>
 # include <algorithm>
 
+# define NOTHING_FOUND "\x1B[35mNothing found =(\n\x1B[0m"
+
 template <typename T>
 typename T::iterator easyfind(T& cont, int num)
 {

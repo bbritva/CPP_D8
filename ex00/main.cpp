@@ -3,7 +3,7 @@
 int main()
 {
   //тесты вектора
-  std::cout << "\x1B[36m=================================VECTOR TESTS=================================\x1B[0m\n";
+  std::cout << "\x1B[36m===============VECTOR TESTS===============\x1B[0m\n";
   {
     std::vector<int> myVector;
     myVector.reserve(5);
@@ -22,7 +22,7 @@ int main()
     }
     catch (std::exception &)
     {
-      std::cerr << "Nothing found\n";
+      std::cerr << NOTHING_FOUND;
     }
     try
     {
@@ -35,10 +35,10 @@ int main()
     }
     catch (std::exception &)
     {
-      std::cerr << "Nothing found\n";
+      std::cerr << NOTHING_FOUND;
     }
   }
-  std::cout << "\x1B[36m==================================LIST TESTS==================================\x1B[0m\n";
+  std::cout << "\x1B[36m================LIST TESTS================\x1B[0m\n";
   {
     std::list<int> myList;
     for (int count = 0; count < 5; ++count)
@@ -56,7 +56,7 @@ int main()
     }
     catch (std::exception &)
     {
-      std::cerr << "Nothing found\n";
+      std::cerr << NOTHING_FOUND;
     }
     try
     {
@@ -69,7 +69,7 @@ int main()
     }
     catch (std::exception &)
     {
-      std::cerr << "Nothing found\n";
+      std::cerr << NOTHING_FOUND;
     }
   }
 }
