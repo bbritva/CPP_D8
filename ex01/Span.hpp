@@ -2,7 +2,8 @@
 # define SPAN_HPP
 
 # include <iostream>
-#include <vector>
+# include <vector>
+# include <stdint.h>
 
 class Span
 {
@@ -24,7 +25,9 @@ public:
   Span &operator=(const Span &other);
   ~Span();
 
-  void addNumber(int);
+  void  addNumber(int);
+  int   shortestSpan();
+  int   longestSpan();
 
 
   class FullSpanException : public std::exception

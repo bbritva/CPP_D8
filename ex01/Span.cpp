@@ -2,6 +2,7 @@
 // Created by boris on 12.10.2021.
 //
 
+#include <cmath>
 #include "Span.hpp"
 
 Span::Span(): _len(0){}
@@ -44,6 +45,40 @@ unsigned int Span::getLen() const
 const std::vector<int> &Span::getArr() const
 {
   return _arr;
+}
+
+int Span::shortestSpan()
+{
+  if (_len < 2 || _arr.size() < 2)
+    throw TooFewElementsException();
+  int res = INT32_MAX;
+  std::vector<int>::iterator it = _arr.begin();
+  std::vector<int>::iterator it2;
+  for (; it != _arr.end() ; ++it)
+  {
+    it2 = _arr.begin();
+    for (; it2 != _arr.end() ; ++it2)
+      if (it != it2 && (abs(*it - *it2) < res))
+        res = abs(*it - *it2);
+  }
+  return res;
+}
+
+int Span::longestSpan()
+{
+  if (_len < 2 || _arr.size() < 2)
+    throw TooFewElementsException();
+  int res = 0;
+  std::vector<int>::iterator it = _arr.begin();
+  std::vector<int>::iterator it2;
+  for (; it != _arr.end() ; ++it)
+  {
+    it2 = _arr.begin();
+    for (; it2 != _arr.end() ; ++it2)
+      if (it != it2 && (abs(*it - *it2) > res))
+        res = abs(*it - *it2);
+  }
+  return res;
 }
 
 std::ostream& operator<<(std::ostream &stream, const Span &span)
