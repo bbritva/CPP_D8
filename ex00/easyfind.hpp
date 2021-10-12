@@ -22,4 +22,15 @@ typename T::iterator easyfind(T& cont, int num)
 	return (it);
 }
 
+template <typename T>
+void showContainer(T& cont)
+{
+  typename T::iterator it;
+  it = cont.begin();
+  std::cout << "Container = {";
+  for (; it != cont.end(); it++)
+    std::cout << *it << ", ";
+  std::cout << "}\n";
+}
+
 #endif//EASYFIND_HPP
