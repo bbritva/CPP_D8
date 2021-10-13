@@ -29,7 +29,12 @@ void showContainer(T& cont)
   it = cont.begin();
   std::cout << "Container = {";
   for (; it != cont.end(); it++)
-    std::cout << *it << ", ";
+  {
+	  std::cout << *it;
+	  if ((++it) != cont.end())
+		  std::cout << ", ";
+	  it--;
+  }
   std::cout << "}\n";
 }
 
