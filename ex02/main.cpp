@@ -1,66 +1,53 @@
 #include "Mutantstack.hpp"
 
-# define SIZE 10
+#define SIZE 5
 
 int main()
 {
-  Mutantstack span(SIZE);
-  for (int i = 0; i < SIZE; ++i)
-  {
-    try
-    {
-      span.addNumber(i);
-    }
-    catch (Mutantstack::FullSpanException &e)
-    {
-      std::cerr << e.what();
-    }
-  }
-  std::cout << span;
-
-  try
-  {
-    std::cout << "Try to add number into full span:\n";
-    span.addNumber(42);
-  }
-  catch (Mutantstack::FullSpanException &e)
-  {
-    std::cerr << e.what();
-  }
-  std::cout << "longest = " << span.longestSpan() << "\n";
-  std::cout << "shortest = " << span.shortestSpan() << "\n";
-
-  Mutantstack span1(1);
-  span1.addNumber(3);
-  try
-  {
-    std::cout << "Try to find shortest span in too small array:\n";
-    int res = span1.shortestSpan();
-    std::cout << "shortest = " << res << "\n";
-  }
-  catch (Mutantstack::TooFewElementsException &e)
-  {
-    std::cerr << e.what();
-  }
-  try
-  {
-    std::cout << "Try to find longest span in too small array:\n";
-    int res = span1.longestSpan();
-    std::cout << "longest = " << res << "\n";
-  }
-  catch (Mutantstack::TooFewElementsException &e)
-  {
-    std::cerr << e.what();
-  }
-  std::cout << "This is result of main from subject:\n";
-  {
-    Mutantstack sp = Mutantstack(5);
-    sp.addNumber(5);
-    sp.addNumber(3);
-    sp.addNumber(17);
-    sp.addNumber(9);
-    sp.addNumber(11);
-    std::cout << sp.shortestSpan() << std::endl;
-    std::cout << sp.longestSpan() << std::endl;
-  }
+	{
+		std::cout << "\x1B[36m============SUBJECT TESTS============\x1B[0m\n";
+		MutantStack<int> mstack;
+		mstack.push(5);
+		mstack.push(17);
+		std::cout << mstack.top() << std::endl;
+		mstack.pop();
+		std::cout << mstack.size() << std::endl;
+		mstack.push(3);
+		mstack.push(5);
+		mstack.push(737);
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
+		++it;
+		--it;
+		while (it != ite)
+		{
+			std::cout << *it << std::endl;
+			++it;
+		}
+		std::stack<int> s(mstack);
+	}
+	{
+		std::cout << "\x1B[36m============MY INT TESTS============\x1B[0m\n";
+		MutantStack<int> mstack;
+		std::cout << "Push 0-4 to stack:\n";
+		for (int i = 0; i < SIZE; ++i)
+			mstack.push(i);
+		showContainer(mstack);
+		std::cout << "Top = " << mstack.top() << std::endl;
+		std::cout << "Size = " << mstack.size() << std::endl;
+		std::cout << "Pop from stack" << std::endl;
+		mstack.pop();
+		std::cout << "Top = " << mstack.top() << std::endl;
+		std::cout << "Size = " << mstack.size() << std::endl;
+		showContainer(mstack);
+		MutantStack<int> mstack_copy(mstack);
+		std::cout << "Stack copied, pushed 42 to origin.\nOrigin: ";
+		mstack.push(42);
+		showContainer(mstack);
+		std::cout << "Copy: ";
+		showContainer(mstack_copy);
+		std::cout << "Revers show origin: ";
+		reversShowContainer(mstack);
+		std::stack<int> s(mstack);
+	}
 }
