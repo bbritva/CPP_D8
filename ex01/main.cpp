@@ -52,6 +52,7 @@ int main()
   {
     std::cerr << e.what();
   }
+  std::cout << "This is result of main from subject:\n";
   {
     Span sp = Span(5);
     sp.addNumber(5);

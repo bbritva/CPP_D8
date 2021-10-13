@@ -2,7 +2,6 @@
 // Created by boris on 12.10.2021.
 //
 
-#include <cmath>
 #include "Span.hpp"
 
 Span::Span(): _len(0){}
@@ -83,7 +82,7 @@ int Span::longestSpan()
 
 std::ostream& operator<<(std::ostream &stream, const Span &span)
 {
-  stream << "This span size = " << span.getLen() << ", and looks like:\n{";
+  stream << "This span size = " << span.getLen() << ", and it looks like:\n{";
   for (unsigned int i = 0; i < span.getLen(); ++i)
   {
     stream << span.getArr()[i];
