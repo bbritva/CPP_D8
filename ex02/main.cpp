@@ -50,4 +50,28 @@ int main()
 		reversShowContainer(mstack);
 		std::stack<int> s(mstack);
 	}
+	{
+		std::cout << "\x1B[36m===========MY STRING TESTS==========\x1B[0m\n";
+		MutantStack<std::string> mstack;
+		std::cout << "Push \"0\"-\"4\" to stack:\n";
+		for (int i = 0; i < SIZE; ++i)
+			mstack.push(std::to_string(i));
+		showContainer(mstack);
+		std::cout << "Top = \"" << mstack.top() << "\"\n";
+		std::cout << "Size = \"" << mstack.size() << "\"\n";
+		std::cout << "Pop from stack" << std::endl;
+		mstack.pop();
+		std::cout << "Top = \"" << mstack.top() << "\"\n";
+		std::cout << "Size = \"" << mstack.size() << "\"\n";
+		showContainer(mstack);
+		MutantStack<std::string> mstack_copy(mstack);
+		std::cout << "Stack copied, pushed \"42\" to origin.\nOrigin: ";
+		mstack.push("42");
+		showContainer(mstack);
+		std::cout << "Copy: ";
+		showContainer(mstack_copy);
+		std::cout << "Revers show origin: ";
+		reversShowContainer(mstack);
+		std::stack<std::string> s(mstack);
+	}
 }

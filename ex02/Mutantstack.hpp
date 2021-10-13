@@ -1,5 +1,5 @@
 #ifndef MUTANTSTACK_HPP
-# define SPAN_HPP
+# define MUTANTSTACK_HPP
 
 # include <iostream>
 # include <vector>
